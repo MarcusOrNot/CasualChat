@@ -75,6 +75,7 @@ dependencies {
     kapt ("com.google.dagger:hilt-compiler:2.44.2")
     implementation ("androidx.hilt:hilt-navigation-compose:1.0.0")
     implementation(project(":feature-chat"))
+    implementation(project(":core-utils"))
 
     /*kapt {
         correctErrorTypes = true

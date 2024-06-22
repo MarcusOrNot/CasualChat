@@ -1,8 +1,7 @@
 package com.example.feature_chat.presentation.viewmodels
 
 import androidx.lifecycle.ViewModel
-import com.example.core_domain.repository.ChatsListRepo
-import com.example.di.DataModule
+import com.example.core_domain.repository.chats.ChatsListRepo
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -12,8 +11,10 @@ internal class ChatViewModel @Inject constructor (
 ): ViewModel() {
 
 
+
+
     fun showChats() {
-       println(chatsData.getChatsList().toString())
+       //println(chatsData.getChatsList().toString())
     }
 
 }

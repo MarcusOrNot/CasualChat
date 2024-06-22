@@ -1,7 +1,11 @@
 package com.example.di
 
-import com.example.data.room.RoomChatsListImpl
-import com.example.core_domain.repository.ChatsListRepo
+import com.example.core_domain.repository.chats.ChatCreateRepo
+import com.example.core_domain.repository.chats.ChatsListRepo
+import com.example.core_utils.Info
+import com.example.data.room.CustomRoomInstance
+import com.example.data.room.implementations.RoomChatCreateImpl
+import com.example.data.room.implementations.RoomChatsListImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -12,10 +16,22 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object DataModule {
 
+    /*@Provides
+    @Singleton
+    fun provideContext(application: Application): Context {
+        return application.applicationContext
+    }*/
+
     @Provides
     @Singleton
-    fun providesChatsListRepo(): com.example.core_domain.repository.ChatsListRepo {
-        return RoomChatsListImpl()
+    fun providesChatsListRepo(): ChatsListRepo {
+        return RoomChatsListImpl(CustomRoomInstance.getInstance(Info.context))
+    }
+
+    @Provides
+    @Singleton
+    fun providesChatCreateRepo(): ChatCreateRepo {
+        return RoomChatCreateImpl(CustomRoomInstance.getInstance(Info.context))
     }
 
 }
