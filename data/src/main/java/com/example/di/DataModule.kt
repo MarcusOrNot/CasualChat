@@ -6,6 +6,7 @@ import com.example.core_utils.Info
 import com.example.data.room.CustomRoomInstance
 import com.example.data.room.implementations.RoomChatCreateImpl
 import com.example.data.room.implementations.RoomChatsListImpl
+import com.example.data.testimplements.ChatsListTestImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -25,7 +26,8 @@ object DataModule {
     @Provides
     @Singleton
     fun providesChatsListRepo(): ChatsListRepo {
-        return RoomChatsListImpl(CustomRoomInstance.getInstance(Info.context))
+        //return RoomChatsListImpl(CustomRoomInstance.getInstance(Info.context))
+        return ChatsListTestImpl()
     }
 
     @Provides
